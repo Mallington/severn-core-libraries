@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using MathNet.Numerics;
 
 namespace TestApp
@@ -9,16 +10,22 @@ namespace TestApp
 
         public TChart Chart => _chart;
 
-        private Func<double[], double> _predictFunction;
+        private Func<double, double> _predictFunction;
 
         public ChartPredictor(TChart chart)
         {
+            
             _chart = chart;
-            _predictFunction = Fit.MultiDimFunc(_chart.getFeatureData(), _chart.getTargetData());
+            Console.Out.WriteLine("hello2:"+_chart.getFeatureData());
+            _predictFunction = Fit.LineFunc(_chart.getFeatureData(), _chart.getTargetData());
+           
+            
+        
+            // _predictFunction = Fit.MultiDimFunc(_chart.getFeatureData(), _chart.getTargetData());
 
         }
 
-        public double predict(params double[] inputs)
+        public double predict(double inputs)
         {
             return _predictFunction.Invoke(inputs);
         }

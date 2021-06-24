@@ -21,25 +21,25 @@ namespace TestApp
             return new BasicChartBuilder();
         }
 
-        public double[][] getFeatureData()
+        public double[] getFeatureData()
         {
-            double[][] newValues = new double[][] { };
+            // double[][] newValues = new double[][] { };
+            //
+            // for (var i = 0; i < _feature.Values.First().Length; i++)
+            // {
+            //     var j = 0;
+            //     double[] row = new double []{};
+            //     foreach (var feature in _feature.Values)
+            //     {
+            //         row = row.Concat(new double[] {  feature[i]}).ToArray();
+            //     }
+            //
+            //     newValues =  newValues.Concat(new double[][] {row}).ToArray();
+            // }
 
-            for (var i = 0; i < _feature.Values.First().Length; i++)
-            {
-                var j = 0;
-                double[] row = new double []{};
-                foreach (var feature in _feature.Values)
-                {
-                    row = row.Concat(new double[] {  feature[i]}).ToArray();
-                }
-
-                newValues =  newValues.Concat(new double[][] {row}).ToArray();
-            }
 
 
-
-            return newValues;
+            return _feature.Values.First();
         }
 
 

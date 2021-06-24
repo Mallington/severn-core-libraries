@@ -2,7 +2,7 @@ namespace TestApp
 {
     public interface IChart
     {
-        double[][] getFeatureData();
+        double[] getFeatureData();
         double[] getTargetData();
     }
 }
